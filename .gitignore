@@ -1,0 +1,17 @@
+# Internal session documents - never push these
+HANDOFF.md
+CLAUDE.md
+.claude/
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+
+# Build artifacts
+*.zip
+*.log
+/node_modules/
