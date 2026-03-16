@@ -8,7 +8,7 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 global $wpdb;
 
 $results = $wpdb->get_results(
-	"SELECT option_name FROM {$wpdb->options} WHERE option_name LIKE '%\_log-viewer\_settings'",
+	$wpdb->prepare( "SELECT option_name FROM {$wpdb->options} WHERE option_name LIKE %s", '%\_log-viewer\_settings' ),
 	ARRAY_A
 );
 

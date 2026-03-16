@@ -327,7 +327,10 @@ class Files_View_Page {
 				User_Options::KEYS_AUTOREFRESH => array_key_exists( User_Options::KEYS_AUTOREFRESH, $_POST ) ? 1 : 0,
 			);
 			if ( array_key_exists( User_Options::KEYS_LINEOUTPUTORDER, $_POST ) ) {
-				$viewoptions[ User_Options::KEYS_LINEOUTPUTORDER ] = (int) $_POST[ User_Options::KEYS_LINEOUTPUTORDER ];
+				$val = (int) $_POST[ User_Options::KEYS_LINEOUTPUTORDER ];
+				if ( in_array( $val, [ User_Options::LINEOUTPUTORDER_FIFO, User_Options::LINEOUTPUTORDER_FILO ], true ) ) {
+					$viewoptions[ User_Options::KEYS_LINEOUTPUTORDER ] = $val;
+				}
 			}
 
 			do_action( self::$ACTIONS_VIEWOPTIONS_CHANGED, $viewoptions );

@@ -87,8 +87,8 @@ class Log_Viewer_Admin {
 	 */
 	public function get_Files_View_Page(): Files_View_Page {
 		if ( null === $this->_files_view_page ) {
-			require_once 'includes/class-user-options.php';
-			require_once 'includes/class-files-view-page.php';
+			require_once __DIR__ . '/includes/class-user-options.php';
+			require_once __DIR__ . '/includes/class-files-view-page.php';
 			$this->_files_view_page = new Files_View_Page( realpath( __DIR__ . DIRECTORY_SEPARATOR . 'views' ) );
 		}
 
