@@ -4,7 +4,7 @@ Tags: debug, log, admin, development, security
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 8.0
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -79,6 +79,11 @@ Add `define( 'WP_DEBUG_LOG', true );` in your wp-config.php file. This is not re
 Not currently. Only *.log files in the top level of wp-content/ are scanned. This is a known limitation.
 
 == Changelog ==
+
+= 1.1.1 =
+* Security: Prepared statement in uninstall.php for safe database queries.
+* Hardening: Validation on lineoutputorder parameter.
+* Hardening: Absolute require paths to prevent directory traversal in includes.
 
 = 1.1.0 =
 * Security: Fixed stored XSS via unescaped log file content output

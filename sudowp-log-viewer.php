@@ -4,7 +4,7 @@ declare(strict_types=1);
  * Plugin Name:       SudoWP Log Viewer
  * Plugin URI:        https://sudowp.com/blog/sudowp-log-viewer-security-patch/
  * Description:       A security-hardened fork of the abandoned Log Viewer plugin by Markus Fischbacher. Fixes unescaped log output, path traversal, and PHP 8.x compatibility issues.
- * Version:           1.1.0
+ * Version:           1.1.1
  * Requires at least: 6.0
  * Requires PHP:      8.0
  * Author:            SudoWP
