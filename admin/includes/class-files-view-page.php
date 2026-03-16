@@ -343,8 +343,9 @@ class Files_View_Page {
 			$showEditSection = false;
 		}
 
-		$realfile  = Log_Viewer_Admin::transformFilePath( $this->getCurrentFile() );
-		$writeable = ( false !== $realfile ) ? is_writable( $realfile ) : false;
+		$currentFile = $this->getCurrentFile();
+		$realfile    = ( false !== $currentFile ) ? Log_Viewer_Admin::transformFilePath( $currentFile ) : false;
+		$writeable   = ( false !== $realfile ) ? is_writable( $realfile ) : false;
 
 		include_once $this->_view_file;
 	}
