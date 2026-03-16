@@ -17,14 +17,14 @@ class Log_Viewer_Admin {
 	 *
 	 * @var string
 	 */
-	const VERSION = '1.1.0';
+	const VERSION = '1.1.1';
 
 	/**
 	 * Plugin version short.
 	 *
 	 * @var string
 	 */
-	const VERSION_SHORT = '1.1.0';
+	const VERSION_SHORT = '1.1.1';
 
 	/**
 	 * Unique identifier / text domain.

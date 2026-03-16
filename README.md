@@ -58,6 +58,10 @@ define( 'WP_DEBUG_LOG', true );
 
 ## Changelog
 
+### 1.1.1
+
+- Bug fix: Prevented fatal `TypeError` on sites with no log files present in `wp-content/`. `view_page()` and Debug Bar `render()` now guard against `false` return from `getCurrentFile()` before calling `transformFilePath()`.
+
 ### 1.1.0
 
 - Security: Fixed stored XSS via unescaped log file content output

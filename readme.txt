@@ -81,9 +81,7 @@ Not currently. Only *.log files in the top level of wp-content/ are scanned. Thi
 == Changelog ==
 
 = 1.1.1 =
-* Security: Prepared statement in uninstall.php for safe database queries.
-* Hardening: Validation on lineoutputorder parameter.
-* Hardening: Absolute require paths to prevent directory traversal in includes.
+* Bug fix: Prevented fatal TypeError when no log files are present in wp-content/ by guarding transformFilePath() calls against false return from getCurrentFile() in both view_page() and Debug Bar render()
 
 = 1.1.0 =
 * Security: Fixed stored XSS via unescaped log file content output
@@ -99,6 +97,9 @@ Not currently. Only *.log files in the top level of wp-content/ are scanned. Thi
 * Compatibility: Declared all class properties with explicit types
 
 == Upgrade Notice ==
+
+= 1.1.1 =
+Bug fix release. Resolves a fatal TypeError on sites with no log files in wp-content/.
 
 = 1.1.0 =
 Security release. All users of the original Log Viewer plugin should
