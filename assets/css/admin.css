@@ -1,0 +1,337 @@
+/**
+ * SudoWP Log Viewer - Admin Styles
+ *
+ * Dark terminal-style layout for the log viewer admin page.
+ *
+ * @since 1.2.0
+ */
+
+/* ---- Color tokens ---- */
+:root {
+	--sudowp-lv-bg:          #1e1e2e;
+	--sudowp-lv-bg-surface:  #252536;
+	--sudowp-lv-bg-sidebar:  #1a1a2a;
+	--sudowp-lv-bg-toolbar:  #2a2a3c;
+	--sudowp-lv-bg-input:    #1a1a2a;
+	--sudowp-lv-border:      #3a3a4e;
+	--sudowp-lv-text:        #cdd6f4;
+	--sudowp-lv-text-dim:    #7f849c;
+	--sudowp-lv-text-bright: #ffffff;
+	--sudowp-lv-accent:      #89b4fa;
+	--sudowp-lv-accent-hover:#b4d0fb;
+	--sudowp-lv-green:       #a6e3a1;
+	--sudowp-lv-red:         #f38ba8;
+	--sudowp-lv-yellow:      #f9e2af;
+	--sudowp-lv-radius:      4px;
+}
+
+/* ---- Notices ---- */
+.sudowp-lv-notice {
+	padding: 8px 14px;
+	margin: 0 0 2px 0;
+	font-size: 13px;
+	line-height: 1.5;
+	border-left: 3px solid var(--sudowp-lv-border);
+	background: var(--sudowp-lv-bg-surface);
+	color: var(--sudowp-lv-text);
+}
+
+.sudowp-lv-notice-success {
+	border-left-color: var(--sudowp-lv-green);
+	color: var(--sudowp-lv-green);
+}
+
+.sudowp-lv-notice-error {
+	border-left-color: var(--sudowp-lv-red);
+	color: var(--sudowp-lv-red);
+}
+
+.sudowp-lv-notice-warning {
+	border-left-color: var(--sudowp-lv-yellow);
+	color: var(--sudowp-lv-yellow);
+}
+
+/* ---- Main wrapper ---- */
+#sudowp-lv-wrap {
+	display: grid;
+	grid-template-columns: 200px 1fr;
+	grid-template-rows: auto auto 1fr;
+	border: 1px solid var(--sudowp-lv-border);
+	border-radius: var(--sudowp-lv-radius);
+	overflow: hidden;
+	background: var(--sudowp-lv-bg);
+	font-family: "SF Mono", "Cascadia Code", "Fira Code", "Consolas", monospace;
+	font-size: 13px;
+	color: var(--sudowp-lv-text);
+	margin-top: 10px;
+	min-height: 520px;
+}
+
+/* ---- Header ---- */
+#sudowp-lv-header {
+	grid-column: 1 / -1;
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	padding: 10px 16px;
+	background: var(--sudowp-lv-bg-surface);
+	border-bottom: 1px solid var(--sudowp-lv-border);
+}
+
+.sudowp-lv-title {
+	font-weight: 600;
+	font-size: 14px;
+	color: var(--sudowp-lv-text-bright);
+	white-space: nowrap;
+}
+
+.sudowp-lv-file-path {
+	color: var(--sudowp-lv-accent);
+	font-size: 12px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	min-width: 0;
+}
+
+.sudowp-lv-meta {
+	margin-left: auto;
+	display: flex;
+	gap: 16px;
+	font-size: 11px;
+	color: var(--sudowp-lv-text-dim);
+	white-space: nowrap;
+}
+
+/* ---- Toolbar ---- */
+#sudowp-lv-toolbar {
+	grid-column: 1 / -1;
+	display: flex;
+	align-items: center;
+	gap: 0;
+	padding: 6px 16px;
+	background: var(--sudowp-lv-bg-toolbar);
+	border-bottom: 1px solid var(--sudowp-lv-border);
+	flex-wrap: wrap;
+}
+
+.sudowp-lv-toolbar-group {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.sudowp-lv-toolbar-divider {
+	width: 1px;
+	height: 20px;
+	background: var(--sudowp-lv-border);
+	margin: 0 12px;
+}
+
+#sudowp-lv-toolbar select,
+#sudowp-lv-toolbar input[type="checkbox"] {
+	accent-color: var(--sudowp-lv-accent);
+}
+
+#sudowp-lv-toolbar select {
+	background: var(--sudowp-lv-bg-input);
+	color: var(--sudowp-lv-text);
+	border: 1px solid var(--sudowp-lv-border);
+	border-radius: var(--sudowp-lv-radius);
+	padding: 4px 8px;
+	font-size: 12px;
+	font-family: inherit;
+	line-height: 1.4;
+}
+
+.sudowp-lv-autorefresh {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	font-size: 12px;
+	color: var(--sudowp-lv-text-dim);
+	cursor: pointer;
+}
+
+.sudowp-lv-order-label {
+	font-size: 12px;
+	color: var(--sudowp-lv-text-dim);
+}
+
+/* ---- Buttons ---- */
+.sudowp-lv-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 4px 12px;
+	font-size: 12px;
+	font-family: inherit;
+	font-weight: 500;
+	line-height: 1.4;
+	border: 1px solid transparent;
+	border-radius: var(--sudowp-lv-radius);
+	cursor: pointer;
+	white-space: nowrap;
+}
+
+.sudowp-lv-btn-primary {
+	background: var(--sudowp-lv-accent);
+	color: #1e1e2e;
+}
+
+.sudowp-lv-btn-primary:hover {
+	background: var(--sudowp-lv-accent-hover);
+}
+
+.sudowp-lv-btn-danger {
+	background: var(--sudowp-lv-red);
+	color: #1e1e2e;
+}
+
+.sudowp-lv-btn-danger:hover {
+	background: #f5a0b8;
+}
+
+/* ---- Sidebar ---- */
+#sudowp-lv-sidebar {
+	grid-row: 3;
+	grid-column: 1;
+	background: var(--sudowp-lv-bg-sidebar);
+	border-right: 1px solid var(--sudowp-lv-border);
+	overflow-y: auto;
+}
+
+#sudowp-lv-sidebar-header {
+	padding: 10px 14px 6px;
+	font-size: 11px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	color: var(--sudowp-lv-text-dim);
+}
+
+#sudowp-lv-sidebar ul {
+	list-style: none;
+	margin: 0;
+	padding: 0 6px 10px;
+}
+
+#sudowp-lv-sidebar li {
+	margin: 0;
+}
+
+#sudowp-lv-sidebar li a {
+	display: block;
+	padding: 5px 8px;
+	font-size: 12px;
+	color: var(--sudowp-lv-text);
+	text-decoration: none;
+	border-radius: var(--sudowp-lv-radius);
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+#sudowp-lv-sidebar li a:hover {
+	background: var(--sudowp-lv-bg-toolbar);
+	color: var(--sudowp-lv-text-bright);
+}
+
+#sudowp-lv-sidebar li.sudowp-lv-active a {
+	background: var(--sudowp-lv-accent);
+	color: #1e1e2e;
+	font-weight: 500;
+}
+
+/* ---- Content area ---- */
+#sudowp-lv-content {
+	grid-row: 3;
+	grid-column: 2;
+	display: flex;
+	flex-direction: column;
+	min-height: 0;
+	overflow: hidden;
+}
+
+#sudowp-lv-content textarea#newcontent {
+	flex: 1 1 auto;
+	width: 100%;
+	min-height: 350px;
+	margin: 0;
+	padding: 14px 16px;
+	background: var(--sudowp-lv-bg);
+	color: var(--sudowp-lv-green);
+	border: none;
+	border-radius: 0;
+	font-family: "SF Mono", "Cascadia Code", "Fira Code", "Consolas", monospace;
+	font-size: 12px;
+	line-height: 1.6;
+	resize: vertical;
+	box-sizing: border-box;
+	outline: none;
+}
+
+/* ---- File info bar ---- */
+#sudowp-lv-fileinfo {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px 24px;
+	padding: 8px 16px;
+	background: var(--sudowp-lv-bg-surface);
+	border-top: 1px solid var(--sudowp-lv-border);
+	font-size: 11px;
+	color: var(--sudowp-lv-text-dim);
+}
+
+.sudowp-lv-fi-item {
+	display: flex;
+	gap: 6px;
+}
+
+.sudowp-lv-fi-label {
+	font-weight: 600;
+	color: var(--sudowp-lv-text);
+}
+
+/* ---- No files state ---- */
+#sudowp-lv-nofiles {
+	grid-column: 1 / -1;
+	grid-row: 3;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 60px 20px;
+	color: var(--sudowp-lv-text-dim);
+}
+
+.sudowp-lv-nofiles-icon {
+	width: 48px;
+	height: 48px;
+	margin-bottom: 16px;
+	opacity: 0.4;
+}
+
+#sudowp-lv-nofiles p {
+	margin: 4px 0;
+	font-size: 13px;
+}
+
+/* ---- Error state ---- */
+#sudowp-lv-empty {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 60px 20px;
+	color: var(--sudowp-lv-yellow);
+}
+
+.sudowp-lv-empty-icon {
+	font-size: 32px;
+	margin-bottom: 10px;
+}
+
+.sudowp-lv-empty-text {
+	font-size: 13px;
+}

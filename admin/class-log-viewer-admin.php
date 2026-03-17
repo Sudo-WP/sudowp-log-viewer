@@ -17,14 +17,14 @@ class Log_Viewer_Admin {
 	 *
 	 * @var string
 	 */
-	const VERSION = '1.1.1';
+	const VERSION = '1.2.0';
 
 	/**
 	 * Plugin version short.
 	 *
 	 * @var string
 	 */
-	const VERSION_SHORT = '1.1.1';
+	const VERSION_SHORT = '1.2.0';
 
 	/**
 	 * Unique identifier / text domain.
@@ -61,6 +61,7 @@ class Log_Viewer_Admin {
 		}
 
 		add_action( 'admin_menu', array( $this, 'add_plugin_admin_menu' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
 	}
 
 	/**
@@ -78,6 +79,28 @@ class Log_Viewer_Admin {
 		}
 
 		return self::$instance;
+	}
+
+	/**
+	 * Enqueue admin stylesheet on the Log Viewer page only.
+	 *
+	 * @param string $hook_suffix Current admin page hook suffix.
+	 */
+	public function enqueue_admin_styles( string $hook_suffix ): void {
+		if ( null === $this->_files_view_page ) {
+			return;
+		}
+
+		if ( $hook_suffix !== $this->_files_view_page->_hook_name ) {
+			return;
+		}
+
+		wp_enqueue_style(
+			'sudowp-log-viewer-admin',
+			plugin_dir_url( dirname( __FILE__ ) ) . 'assets/css/admin.css',
+			array(),
+			self::VERSION
+		);
 	}
 
 	/**

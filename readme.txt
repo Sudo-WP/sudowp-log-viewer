@@ -4,7 +4,7 @@ Tags: debug, log, admin, development, security
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 8.0
-Stable tag: 1.1.1
+Stable tag: 1.2.0
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -45,6 +45,7 @@ absolute path injection, and missing authorization checks in the Debug Bar panel
 * File actions: delete, empty, or append a break separator
 * Autorefresh page every 15 seconds (toggle per-user)
 * FIFO/FILO display order preference
+* File size and last modified time shown in the UI
 * Optional Debug Bar panel integration
 
 = Known Limitations =
@@ -68,7 +69,6 @@ installing this fork. Both plugins cannot be active at the same time.
 = Why can I not see the Tools > Log Viewer menu entry? =
 
 You need the `manage_options` capability, which is granted to administrators by default.
-On multisite installations, you must be a Super Admin.
 
 = How do I enable debug.log? =
 
@@ -79,6 +79,11 @@ Add `define( 'WP_DEBUG_LOG', true );` in your wp-config.php file. This is not re
 Not currently. Only *.log files in the top level of wp-content/ are scanned. This is a known limitation.
 
 == Changelog ==
+
+= 1.2.0 =
+* Feature: Redesigned admin UI - dark terminal-style layout with sidebar file list, modern toolbar, and file metadata (size, last modified) in the status bar
+* Feature: File action button only appears after selecting a specific action (prevents accidental execution)
+* Feature: File size display in header and info bar
 
 = 1.1.1 =
 * Bug fix: Prevented fatal TypeError when no log files are present in wp-content/ by guarding transformFilePath() calls against false return from getCurrentFile() in both view_page() and Debug Bar render()
@@ -98,9 +103,11 @@ Not currently. Only *.log files in the top level of wp-content/ are scanned. Thi
 
 == Upgrade Notice ==
 
+= 1.2.0 =
+UI redesign release. No security changes. Safe to update.
+
 = 1.1.1 =
 Bug fix release. Resolves a fatal TypeError on sites with no log files in wp-content/.
 
 = 1.1.0 =
-Security release. All users of the original Log Viewer plugin should
-switch to this fork immediately.
+Security release. All users of the original Log Viewer plugin should switch to this fork immediately.

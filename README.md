@@ -15,6 +15,7 @@ SudoWP Log Viewer is a security-hardened fork of the abandoned Log Viewer WordPr
 - File actions: delete, empty, or append a break separator to log files
 - Autorefresh: automatically reload the page every 15 seconds (configurable per-user)
 - FIFO/FILO display order preference
+- File size and last modified time shown in the UI
 - Optional Debug Bar panel integration
 
 ## Security Patches in This Fork
@@ -57,6 +58,12 @@ define( 'WP_DEBUG_LOG', true );
 - Autorefresh interval is fixed at 15 seconds.
 
 ## Changelog
+
+### 1.2.0
+
+- Feature: Redesigned admin UI - dark terminal-style layout with sidebar file list, toolbar, and file metadata status bar
+- Feature: File action button only appears after selecting a specific action
+- Feature: File size display in header and info bar
 
 ### 1.1.1
 
